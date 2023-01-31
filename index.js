@@ -12,15 +12,14 @@ app.use(bodyparser.urlencoded({
 app.use(bodyparser.json())
 
 //Conexion a la base de datos
-//const url = `` //agregar el conection string
-/*mongoose.connect(url, {
+const url = `mongodb+srv://${process.env.USUARIO}:${process.env.PASSWORD}@cluster0.ocmybsn.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`
+mongoose.connect(url, {
     useNewUrlParser: true,
-    useUnifieldTopology: true
+    useUnifiedTopology: true
 }).then(() => console.log('BD connected')).catch((error) => console.log('Error: ' + error))
-//${process.env.USUARIO}
 
 //Rutas (creacion e importacion)
-const authRoutes = require('./routes/auth')*/
+const authRoutes = require('./routes/auth')
 
 //ruta del Middleware
 app.use('/api/user', authRoutes)
