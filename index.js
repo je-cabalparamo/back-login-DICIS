@@ -13,6 +13,7 @@ app.use(bodyparser.json())
 
 //Conexion a la base de datos
 const url = `mongodb+srv://${process.env.USUARIO}:${process.env.PASSWORD}@cluster0.ocmybsn.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`
+
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -27,7 +28,7 @@ app.use('/api/user', authRoutes)
 app.get('/', (req, res) => {
     res.json({
         estado: true,
-        mensaje: 'So far... It works!, good it didnt explo...'
+        mensaje: 'So far... It works!, good thing it didnt explo...'
     })
 })
 
